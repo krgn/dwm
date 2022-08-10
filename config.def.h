@@ -90,13 +90,19 @@ static const char *dmenucmd[] = {
 static const char *termcmd[]  = { "wezterm", NULL };
 static const char *pmcmd[]  = { "dwm-pm.sh", NULL };
 
+static const char *selcmd[] = { "dwm-screenshot.sh", "selection", NULL };
+static const char *wincmd[] = { "dwm-screenshot.sh", "window", NULL };
+static const char *scrncmd[] = { "dwm-screenshot.sh", "screen", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Escape, spawn,		       {.v = pmcmd} },
+	{ MODKEY|ShiftMask,             XK_w,  		 spawn,		       {.v = wincmd} },
+	{ MODKEY|ShiftMask,             XK_s,  		 spawn,		       {.v = selcmd} },
+	{ MODKEY|ShiftMask,             XK_d,  		 spawn,		       {.v = scrncmd} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_w,      tabmode,        {-1} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
